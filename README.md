@@ -1,2 +1,7 @@
-# Implement-and-test-Group-Policies-GPO-s-to-control-user-and-computer-seetings
-A step by step procedure to Joining a computer to  the domain and apply GPO's 
+## Implement and Test Group Policies (GPOs) to Manage User and Computer Settings
+
+A step-by-step guide to joining a computer to a domain and applying Group Policy Objects (GPOs)
+
+## Prerequisites
+
+- VMware Workstation or Player
