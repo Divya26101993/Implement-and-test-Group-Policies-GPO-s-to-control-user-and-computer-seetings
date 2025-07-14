@@ -64,3 +64,5 @@ Next, to add the ISO file to the **Windows 10 Enterprise** virtual machine, righ
 <img width="895" height="904" alt="Image" src="https://github.com/user-attachments/assets/08499ed3-4064-433e-a59e-921538cc8c4c" />
 
 In the Settings window, select **CD/DVD (SATA)** from the left pane. On the right side, choose **Use ISO image file**, then browse to select the ISO file from your Downloads folder. Finally, click **OK** to confirm
+
+<img width="891" height="903" alt="Image" src="https://github.com/user-attachments/assets/3d4a6a2c-c25e-49f7-9f99-5be354415b8b" />
