@@ -66,3 +66,47 @@ Next, to add the ISO file to the **Windows 10 Enterprise** virtual machine, righ
 In the Settings window, select **CD/DVD (SATA)** from the left pane. On the right side, choose **Use ISO image file**, then browse to select the ISO file from your Downloads folder. Finally, click **OK** to confirm
 
 <img width="891" height="903" alt="Image" src="https://github.com/user-attachments/assets/3d4a6a2c-c25e-49f7-9f99-5be354415b8b" />
+
+<img width="949" height="474" alt="Image" src="https://github.com/user-attachments/assets/1511b3a8-68c1-4eb4-adaa-0bd41d6cfd60" />
+
+<img width="893" height="900" alt="Image" src="https://github.com/user-attachments/assets/d383b471-3a34-4f63-a1f3-985fd42b9da7" />
+
+Now, power on the virtual machine to begin the Windows installation
+
+<img width="689" height="191" alt="Image" src="https://github.com/user-attachments/assets/76164e97-2934-4b44-818c-ec3860e8675b" />
+
+The following screen will display the language options for installing Windows. Leave it as the default language and click **Next**
+
+<img width="620" height="462" alt="Image" src="https://github.com/user-attachments/assets/c8f1ee72-ff8b-43ca-aa36-21986e24b2a8" />
+
+On the next screen, click **Install Now**
+
+<img width="623" height="448" alt="Image" src="https://github.com/user-attachments/assets/3f62379f-7027-4f58-8735-9850c1c49d7b" />
+
+Check the box to accept the terms and click **Next**
+
+<img width="1035" height="772" alt="Image" src="https://github.com/user-attachments/assets/9e9220a3-9b20-482d-a1a0-c5f05b536c77" />
+
+Since we're installing Windows on a new virtual machine, not upgrading, select **Custom** installation
+
+<img width="643" height="478" alt="Image" src="https://github.com/user-attachments/assets/9892b70b-1297-41c2-8b92-c8c9c8715ab5" />
+
+On the next screen, you'll see the drive partitions. Since we only have one drive, simply click **Next** to proceed with the installation
+
+<img width="640" height="485" alt="Image" src="https://github.com/user-attachments/assets/de4ba43e-a202-4f6e-9f56-03bd1ed0a173" />
+
+Now, Windows will start installing. This process may take some time, so just let it run
+
+<img width="643" height="483" alt="Image" src="https://github.com/user-attachments/assets/aec5981f-7cf3-4f17-8847-8a1bd7f261c7" />
+
+Once the installation is complete, you'll be prompted to select your region. Choose your appropriate region and click **Yes**
+
+<img width="1032" height="677" alt="Image" src="https://github.com/user-attachments/assets/9818278e-b9c5-4d67-9687-e6e8f67531e0" />
+
+Since we're adding a user to a domain, select the **Domain join Instead** option instead of setting up a  Microsoft account
+
+
+
+
+
+
