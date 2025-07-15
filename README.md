@@ -1,31 +1,31 @@
-## Implement and Test Group Policies (GPOs) to Manage User and Computer Settings
+## Setting Up and Testing Group Policies (GPOs) on Windows Server 2022 and Client Machines
 
-A step-by-step guide to joining a computer to a domain and applying Group Policy Objects (GPOs)
+This guide will walk you through the process of joining a computer to a domain, configuring DNS and static IPs, and implementing Group Policy Objects (GPOs) on both Windows Server 2022 and Windows 10 machines. By following these steps, you'll be able to manage and enforce security and system settings across multiple machines in your network environment
 
 ## Prerequisites
 
-1.Windows server installation: Install Windows server 2022 on a virtual machine
-2.Active Directory Domain Services (AD DS): Install and configure AD DS to create a Domain
-3.Group Policy Management Console (GPMC): Install GPMC on your Windows Server to manage GPOs
-4. Windows Pro or Enterprise :Install Windows 10 Pro or Enterprise in VM 
+1.**Windows server installation**: Install Windows server 2022 on a virtual machine
+2.**Active Directory Domain Services (AD DS)**: Install and configure AD DS to create a Domain
+3.**Group Policy Management Console (GPMC)**: Install GPMC on your Windows Server to manage GPOs
+4.**Windows Pro or Enterprise** :Install Windows 10 Pro or Enterprise in VM 
 
 ## Installation Steps
 
 ### Step 1:Download the Windows 10 Enterprise ISO file for use with VMware
 
-Visit Google and search for “Windows 10 Enterprise ISO free download,” then navigate to Microsoft’s Evaluation Center and select the Windows 10 Enterprise evaluation edition
+Search for Windows 10 Enterprise ISO: Use **Google** to search for **Windows 10 Enterprise ISO** free download, then navigate to**Microsoft’s Evaluation Center** and select the **Windows 10 Enterprise Evaluation Edition**
 
 <img width="1073" height="904" alt="Image" src="https://github.com/user-attachments/assets/3ebc0f85-913e-42d8-8068-fcd0e12a9426" />
 
-Select the 64‑bit edition of the Windows 10 Enterprise ISO file to ensure better performance, improved speed, and compatibility with modern hardware.
+Select the **64‑bit edition** of the Windows 10 Enterprise ISO file to ensure better performance, improved speed, and compatibility with modern hardware.The 32-bit version is outdated and slower
 
 <img width="1710" height="943" alt="Image" src="https://github.com/user-attachments/assets/0f1737e5-7257-48fb-9ba1-6eeab99435a7" />
 
-Once selected, the download will begin and may take a few minutes to complete. You can monitor the progress and find the ISO file in your system’s Downloads folder
+Once selected, the download will begin and may take a few minutes to complete. You can monitor the progress and find the ISO file in your system’s **Downloads** folder
 
 <img width="991" height="208" alt="Image" src="https://github.com/user-attachments/assets/fa55bfcd-71b4-42d1-a718-fedaf04e9241" />
 
-### Step 2: Install Windows 10 Enterprise on VMware Workstation
+### Step 2:Install Windows 10 Enterprise on VMware Workstation
 
 First, launch VMware Workstation and start the process to create a new virtual machine 
 
@@ -99,7 +99,7 @@ Now, Windows will start installing. This process may take some time, so just let
 
 <img width="643" height="483" alt="Image" src="https://github.com/user-attachments/assets/aec5981f-7cf3-4f17-8847-8a1bd7f261c7" />
 
-Once the installation is complete, you'll be prompted to select your region. Choose your appropriate region and click **Yes**
+Once the installation is complete, you'll be prompted to select your region. Choose the appropriate region and click **Yes**
 
 <img width="1032" height="677" alt="Image" src="https://github.com/user-attachments/assets/9818278e-b9c5-4d67-9687-e6e8f67531e0" />
 
@@ -148,11 +148,11 @@ First, shut down the Windows Enterprise machine and power on the Windows Server 
 
 <img width="819" height="270" alt="Image" src="https://github.com/user-attachments/assets/aedccd69-4188-4ed0-8048-f298f47b85d5" />
 
-In my previous repositories, I’ve already set up the domain and configured the GPOs, so I can directly sign in as an admin
+In my previous repositories, I've already set up the domain and configured the GPOs, so I can sign in directly as an admin
 
 <img width="1417" height="822" alt="Image" src="https://github.com/user-attachments/assets/c8f59653-d981-4e40-8aa9-4a45b7025441" />
 
-Instead of configuring a random static IP for the domain controller, we should always check the IP address already assigned by the ISP. To do this, open the Command Prompt and use the ipconfig command to view the current network configuration
+Instead of configuring a random static IP for the domain controller, always verify the IP address assigned by the ISP. To do this, open the ?**Command Prompt** and use the **ipconfig** command to view the current network configuration
 
 <img width="765" height="162" alt="Image" src="https://github.com/user-attachments/assets/6db217b9-96ff-4bdf-8525-89649aae6a13" />
 
@@ -184,7 +184,7 @@ Enter the IPv4 address, subnet mask, and default gateway that you verified earli
 
 <img width="401" height="454" alt="Image" src="https://github.com/user-attachments/assets/318350a7-a098-4ded-aa25-0dd70afaef7d" />
 
-Our domain controller acts as the DNS server, with the address 127.0.0.1, which is the loopback address pointing to the domain controller itself. Additionally, we have assigned Google's DNS (8.8.8.8) as the alternate DNS server. Click **OK**
+In most configurations, the domain controller’s loopback address 127.0.0.1 is set as the primary DNS server. This is because the domain controller also serves as the DNS server for the domain, and internal name resolution relies on this address. Click **OK**
 
 <img width="399" height="455" alt="Image" src="https://github.com/user-attachments/assets/29b3cc33-3834-44a9-bfd3-993dc745508f" />
 
@@ -196,7 +196,7 @@ Open **Command prompt**  and type **ipconfig /all** command
 
 Now that we’ve successfully set up the Windows Server with all the necessary configurations, power on the client Windows machine.
 
-### Step 5: Setting Up DNS Server Address on the Client Machine
+### Step 5: Configuring DNS on the client machine to point to the domain controller for domain joining
 
 First, power on the Windows 10 Enterprise client machine
 
@@ -223,6 +223,8 @@ This will check if the client machine can successfully communicate with the doma
 <img width="979" height="517" alt="Image" src="https://github.com/user-attachments/assets/2d4a01d8-23e8-4a92-ab34-88f3e0828d0c" />
 
 As per the results, the client has successfully pinged the server, confirming that the network connection between the client machine and the domain controller is working properly
+
+This test helps ensure that the client machine can communicate with the domain controller over the network. If the ping fails, troubleshoot the network connectivity or firewall settings
 
 ### Step 6: Joining the Client Machine to the Domain and use user accounts in Active directory
 
@@ -278,7 +280,7 @@ Now, the computer has successfully joined the domain, and you can use the user a
 
 First, go to the **Windows Server** where you have Active Directory and Group Policy Objects (GPOs) configured
 
-Go to the Group Policy Management Console (GPMC) where you can see the Group Policy Objects (GPOs) that were created earlier
+Go to the Group Policy Management Console (GPMC) where you can see the Group Policy Objects (GPOs) that were created earlier Repositories
 
 <img width="1025" height="706" alt="Image" src="https://github.com/user-attachments/assets/4d464c60-7442-44b9-986b-69b51d4258d8" />
 
