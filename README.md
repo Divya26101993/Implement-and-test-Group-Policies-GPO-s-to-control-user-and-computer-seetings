@@ -322,71 +322,75 @@ We are testing the Restrict Control Panel GPO on the **client machin**e. When yo
 
 ## Issue: Unable to Open Settings in Windows
 
-### Solution 1:
+### Solution 1:Run System File Checker
 
--Open **Command Prompt** as **Administrator** (right-click and select Run as Administrator)
+1.Open **Command Prompt** as **Administrator** (right-click and select Run as Administrator)
 
 <img width="775" height="649" alt="Image" src="https://github.com/user-attachments/assets/5cf460ed-bbcb-47e1-a060-e2fb7d290df2" />
 
--Run the command:**sfc /scannow**
+2.Run the command:**sfc /scannow**
 
 <img width="964" height="525" alt="Image" src="https://github.com/user-attachments/assets/656fae38-299a-4eb4-9950-b3163f896d90" />
 
--If errors are found, it will attempt to fix them. If **no issues** are detected, it will say **No integrity violations found**
+3.The tool will scan and attempt to repair system files.
+
+   If no issues are found, it will show: "No integrity violations found"
 
 <img width="977" height="517" alt="Image" src="https://github.com/user-attachments/assets/171d0a09-cd29-4f56-a775-c356e5f28210" />
 
--After the scan completes, try opening the **Settings** app again
+4.Once the scan is complete, try reopening the Settings app.
 
-### Solution 2: 
+### Solution 2: Re-register the Settings App (Immersive Control Panel)
 
-go to windows powershell type or copy paste the below command
+1.Open Windows PowerShell as Administrator.
+
+2.Copy and paste the following command:
 
 **Get-AppXPackage -AllUsers -Name windows.immersivecontrolpanel | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register “$($_.InstallLocation)\AppXManifest.xml” -Verbose}**
 
-The above command used to repair or restore the built-in Windows setting app ( also called "Immersive Control Panel")
+This command Locates the Settings app (Immersive Control Panel)
 
-Finds where the **Settimgs** app is installed 
-
-Re-registers it using its setup file (AppXManifest.xml), which tells windows how to install or run the app properly
+Re-registers it using its setup manifest (AppXManifest.xml), which tells Windows how to run or repair it
 
 <img width="980" height="518" alt="Image" src="https://github.com/user-attachments/assets/0a3b7482-22bd-4264-ab32-19ba709944fe" />
 
-### Solution 3: 
+### Solution 3: Re-register All Built-in Windows Apps
+
+1.Open Windows PowerShell as Administrator.
+
+2.Run the following command:
 
 **Get-AppXPackage | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml**
 
-**Get-AppXPackage**: This gets a list of all the apps on your PC, including built-in ones like Settings.
+This will:
 
-**Foreach { ... }**: This part tells the computer to do something with each app in the list.
+List all built-in apps on your PC
 
-**Add-AppxPackage**: This command re-installs the app.
+Reinstall and re-register them using their manifest files
 
-**DisableDevelopmentMode**: This ensures the app is installed properly for regular use (not in developer mode).
+Once the command is running, minimize the window and proceed to the next step.
 
-**Register "$($_.InstallLocation)\AppXManifest.xml"**: This tells Windows where to find the app's details and re-register it correctly.
+## Solution 4: Check Registry Settings
 
-Execute this command and minimize the window
+1.Open Registry Editor (type regedit in search and press Enter)
 
-Go to search and type Registry Editor
+2.When prompted by UAC, click Yes
 
-<img width="760" height="656" alt="Image" src="https://github.com/user-attachments/assets/45c29c95-1777-4bb5-8c03-4eb5011b6247" />
-
-In the pop up window select **Yes**
-
-<img width="459" height="317" alt="Image" src="https://github.com/user-attachments/assets/c0a78b99-1409-4f8c-8b82-bb1ebd51cd84" />
-
-In Rgesitry Editor select **HKEY-CURRENT-USER**
+3.Navigate to In Rgesitry Editor select **HKEY-CURRENT-USER**
 
 **Software -> Microsoft -> Windows -> Currentversion -> Policies -> Explorer**
 
-
-
-       
+4.On the right-hand side of the Registry Editor, right-click and select:
+-New → DWORD (32-bit) Value
+-Name the new value: NoControlPanel
+-Set the value to 0 (zero).
+-If the NoControlPanel value already exists, simply ensure its value is set to 0.
 
  ## Resources
 
   VMware file -(https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion )
+
+  
 
  
  ## Author
