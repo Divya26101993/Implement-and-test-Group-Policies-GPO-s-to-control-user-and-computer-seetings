@@ -389,11 +389,12 @@ Once the command is running, minimize the window and proceed to the next step.
  ## Resources
 
   VMware file -(https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion )
+  Window server 2022 ISO File - (https://www.microsoft.com/en-us/evalcenter/download-windows-server-2022)
+  Windows 10 Enterprise- (https://www.microsoft.com/en-us/evalcenter/download-windows-10-enterprise)
+  Youtube -(https://www.youtube.com/watch?v=RrRsoRGaKLM&list=PLAdEnQWAAbfXMY2D4HVZOe-ChfTKmaJfQ&index=3)
+  Youtube- (https://www.youtube.com/watch?v=NexB57lGei4)
 
-  
-
- 
- ## Author
+## Author
  
 Github: [Divya26101993](https://github.com/Divya26101993/VMawre-installation-in-windows/edit/main/README.md)
 
