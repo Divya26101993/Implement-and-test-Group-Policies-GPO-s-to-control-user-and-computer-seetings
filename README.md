@@ -224,7 +224,9 @@ This will check if the client machine can successfully communicate with the doma
 
 As per the results, the client has successfully pinged the server, confirming that the network connection between the client machine and the domain controller is working properly
 
-This test helps ensure that the client machine can communicate with the domain controller over the network. If the ping fails, troubleshoot the network connectivity or firewall settings
+This test helps ensure that the client machine can communicate with the domain controller over the network.
+
+If the ping fails, Check DNS Configuration,Network Connectivity ,Firewall Issues.
 
 ### Step 6: Joining the Client Machine to the Domain and use user accounts in Active directory
 
@@ -334,7 +336,7 @@ We are testing the Restrict Control Panel GPO on the **client machin**e. When yo
 
 3.The tool will scan and attempt to repair system files.
 
-   If no issues are found, it will show: "No integrity violations found"
+   If no issues are found, it will show: **No integrity violations found**
 
 <img width="977" height="517" alt="Image" src="https://github.com/user-attachments/assets/171d0a09-cd29-4f56-a775-c356e5f28210" />
 
